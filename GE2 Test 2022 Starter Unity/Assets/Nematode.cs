@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Nematode : MonoBehaviour
 {
-    public int length = 20;
+    public int length;
 
     public Material material;
 
@@ -13,7 +13,8 @@ public class Nematode : MonoBehaviour
     void Awake()
     {
         // Put your code here!
-         int radius = 5;
+        length = Random.Range(8,25);
+        int radius = 5;
         float offset = 0;
 
         // //generating 10 cubes
@@ -32,16 +33,20 @@ public class Nematode : MonoBehaviour
             sphere.transform.position = transform.TransformPoint(new Vector3(0,0,i));
             sphere.transform.parent = sphere.transform;
 
-            sphere.transform.localScale = new Vector3(1,1,1);
-            // if(i <3 )
-            // {
-            //     sphere.transform.localScale = new Vector3(i,i,i);
-            // }
-            // else if( i>7)
-            // {
-            //     sphere.transform.localScale = new Vector3(11 - i, 11 - i,11 - i);
-            // }
-            // offset = offset + .2f;
+            // sphere.transform.localScale = new Vector3(2.5f,2.5f,2.5f);
+              sphere.transform.localScale = new Vector3(1.5f,1.5f,1.5f);
+
+            if(i <2 )
+            {
+                sphere.transform.localScale = new Vector3(i,i,i);
+            }
+            else if( i > 13)
+            {
+                sphere.transform.localScale = new Vector3((length - i)/5, (length - i)/5, (length - i)/5);
+            }
+
+            Debug.Log("size at " + i + " is " + sphere.transform.localScale);
+            offset = offset + .2f;
         }
     }
 
