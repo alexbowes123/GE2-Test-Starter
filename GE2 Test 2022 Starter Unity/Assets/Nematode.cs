@@ -10,6 +10,11 @@ public class Nematode : MonoBehaviour
 
     public GameObject spherePrefab;
 
+    public Renderer sphereMeshRenderer;
+
+
+ 
+
     [SerializeField] Color[] myColors;
 
     void Awake()
@@ -32,6 +37,11 @@ public class Nematode : MonoBehaviour
             sphere.transform.position = sphere.transform.parent.TransformPoint(new Vector3(0,0,-i));
             sphere.transform.rotation = this.transform.rotation;
             Debug.Log("sphere pos = "+sphere.transform.position +" and parent pos "+this.transform.position);
+
+            sphereMeshRenderer = sphere.GetComponent<Renderer>();
+
+            //COULD NOT GET THE COLOURS TO CHANGE 
+            sphereMeshRenderer.material.color = Color.HSVToRGB(50, i * 10,i * 10);
        
 
             

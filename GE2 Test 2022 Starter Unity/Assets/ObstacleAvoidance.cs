@@ -130,11 +130,12 @@ public class ObstacleAvoidance : SteeringBehaviour
         Vector3 force = Vector3.zero;
 
 
-        //GOING TO ADD COLOUR LERPING TO SHOW NEMA FLASHING WHEN COLLIDING
+        //PLANNED TO ADD COLOUR LERPING TO SHOW NEMAT FLASHING WHEN COLLIDING
+        //DID NOT IMPLEMENT IT IN TIME
 
         foreach (Renderer b in this.GetComponentsInChildren<Renderer>())
             {
-                b.material.color = Color.HSVToRGB(0, 100,100);
+                // b.material.color = Color.HSVToRGB(0, 100,100);
                 // StartCoroutine(CoolOff(b));
 
             }
