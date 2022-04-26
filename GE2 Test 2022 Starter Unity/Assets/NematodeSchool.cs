@@ -19,7 +19,7 @@ public class NematodeSchool : MonoBehaviour
         for(int i = 0; i < count; i++)
         {
             GameObject nema = GameObject.Instantiate<GameObject>(prefab);
-            nema.transform.position = transform.TransformPoint(new Vector3(0,0,Random.Range(0,100)));
+            nema.transform.position = transform.TransformPoint(new Vector3(Random.Range(0,30),0,Random.Range(0,30)));
         }
     }
 
