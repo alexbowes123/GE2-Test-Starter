@@ -30,8 +30,17 @@ public class Nematode : MonoBehaviour
 
             //set position of the cube
             sphere.transform.position = transform.TransformPoint(new Vector3(0,0,i));
-           
-            sphere.transform.parent = this.transform;
+            sphere.transform.parent = sphere.transform;
+
+            sphere.transform.localScale = new Vector3(1,1,1);
+            // if(i <3 )
+            // {
+            //     sphere.transform.localScale = new Vector3(i,i,i);
+            // }
+            // else if( i>7)
+            // {
+            //     sphere.transform.localScale = new Vector3(11 - i, 11 - i,11 - i);
+            // }
             // offset = offset + .2f;
         }
     }
