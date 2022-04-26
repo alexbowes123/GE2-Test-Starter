@@ -15,6 +15,12 @@ public class NematodeSchool : MonoBehaviour
     void Awake()
     {
         // Put your code here
+
+        for(int i = 0; i < count; i++)
+        {
+            GameObject nema = GameObject.Instantiate<GameObject>(prefab);
+            nema.transform.position = transform.TransformPoint(new Vector3(0,0,Random.Range(0,100)));
+        }
     }
 
     // Update is called once per frame

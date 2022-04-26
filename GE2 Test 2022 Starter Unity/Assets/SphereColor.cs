@@ -14,6 +14,7 @@ public class SphereColor : MonoBehaviour
 
 
     int len;
+    int i;
 
     
     // Start is called before the first frame update
@@ -21,21 +22,23 @@ public class SphereColor : MonoBehaviour
     {
         SphereMeshRenderer = GetComponent <MeshRenderer> ();
         len = myColors.Length;
+
+        SphereMeshRenderer.material.color = myColors[1];
     }
 
     // Update is called once per frame
     void Update()
     {
-         //lerping from the current colour of the material to the colour at myColour[colourIndex] over time
-        SphereMeshRenderer.material.color = Color.Lerp(SphereMeshRenderer.material.color, myColors[colorIndex], lerpTime*Time.deltaTime);
+        //  //lerping from the current colour of the material to the colour at myColour[colourIndex] over time
+        // SphereMeshRenderer.material.color = Color.Lerp(SphereMeshRenderer.material.color, myColors[colorIndex], lerpTime*Time.deltaTime);
 
         
-        //assign value of t to be a value between t and 1f that changes over time
-        t = Mathf.Lerp(t, 1f, lerpTime*Time.deltaTime);
-        if (t > .9f){
-            t = 0f;
-            colorIndex++;
-            colorIndex = (colorIndex >= len) ? 0 : colorIndex;
-        }
+        // //assign value of t to be a value between t and 1f that changes over time
+        // t = Mathf.Lerp(t, 1f, lerpTime*Time.deltaTime);
+        // if (t > .9f){
+        //     t = 0f;
+        //     colorIndex++;
+        //     colorIndex = (colorIndex >= len) ? 0 : colorIndex;
+        // }
     }
 }
