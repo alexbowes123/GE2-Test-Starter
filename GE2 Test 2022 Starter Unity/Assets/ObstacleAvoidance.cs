@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using System.Collections;
 
 public class ObstacleAvoidance : SteeringBehaviour
 {
@@ -113,11 +114,31 @@ public class ObstacleAvoidance : SteeringBehaviour
             yield return new WaitForSeconds(1.0f / sideFeelerUpdatesPerSecond);
         }
     }
+
+    // IEnumerator CoolOff(GameObject sphere)
+    // {
+      
+    //     sphere.material.color = Color.HSVToRGB(120, 100,50);
+
+        
+    //     yield return new WaitForSeconds(2.0f);
+    // }
     
 
     Vector3 CalculateSceneAvoidanceForce(FeelerInfo info)
     {
         Vector3 force = Vector3.zero;
+
+
+        //GOING TO ADD COLOUR LERPING TO SHOW NEMA FLASHING WHEN COLLIDING
+
+        foreach (Renderer b in this.GetComponentsInChildren<Renderer>())
+            {
+                b.material.color = Color.HSVToRGB(0, 100,100);
+                // StartCoroutine(CoolOff(b));
+
+            }
+      
 
         Vector3 fromTarget = fromTarget = transform.position - info.point;
         float dist = Vector3.Distance(transform.position, info.point);
